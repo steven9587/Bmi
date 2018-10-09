@@ -34,7 +34,19 @@ public class MainActivity extends AppCompatActivity {
         float height = Float.parseFloat(h);
         float bmi = weight / (height * height);
         Log.d("MainActivity" , bmi +"");
-        //浮現一下後消失
-        Toast.makeText(this,"Your BMI is "+ bmi, Toast.LENGTH_LONG).show();
+        //toast對話框浮現一下後消失
+        //Toast.makeText(this,"Your BMI is "+ bmi, Toast.LENGTH_LONG).show();
+        //AlertDialog對話框 ：按ok後消失
+        new AlertDialog.Builder(this)
+            .setTitle("BMI")
+                .setMessage("Your BMI is" + bmi)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            edWeight.setText(" ");
+            edHeight.setText(" ");
+        }
+    })
+            .show();
 }
 }
