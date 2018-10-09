@@ -16,8 +16,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void bmi(View view){
         Log.d("MainActivity" , "bmi");
+        //取得輸入方塊
         EditText edWeight = findViewById(R.id.ed_weight);
         EditText edHeight = findViewById(R.id.ed_height);
+        //取得輸入方塊內資料，轉換成string
         String w = edWeight.getText().toString();
         String h = edHeight.getText().toString();
         Log.d("MainActivity" , w + "/" + h);
