@@ -15,19 +15,30 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText edWeight;
     private EditText edHeight;
+    private Button help;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViews();
+
+    }
+
+    private void findViews() {
         //取得輸入方塊內資料，轉換成string
         edWeight = findViewById(R.id.ed_weight);
         edHeight = findViewById(R.id.ed_height);
-        Button help = findViewById(R.id.help);
+        help = findViewById(R.id.help);
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //Log.d("Mainactivity", "onClick: help");
+                new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("What 's BMI?")
+                        .setMessage("The body mass index (BMI) or Quetelet index is a value derived from the mass (weight) and height of an individual. The BMI is defined as the body mass divided by the square of the body height, and is universally expressed in units of kg/m2, resulting from mass in kilograms and height in meters.")
+                        .setPositiveButton("OK",null)
+                        .show();
             }
         });
     }
