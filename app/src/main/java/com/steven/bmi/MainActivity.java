@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViews();
-
     }
 
     private void findViews() {
@@ -35,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Log.d("Mainactivity", "onClick: help");
                 new AlertDialog.Builder(MainActivity.this)
-                    .setTitle("What 's BMI?")
-                        .setMessage("The body mass index (BMI) or Quetelet index is a value derived from the mass (weight) and height of an individual. The BMI is defined as the body mass divided by the square of the body height, and is universally expressed in units of kg/m2, resulting from mass in kilograms and height in meters.")
-                        .setPositiveButton("OK",null)
+                    .setTitle(R.string.what_is_bmi)
+                        .setMessage(R.string.bmi_information)
+                        .setPositiveButton(R.string.ok,null)
                         .show();
             }
         });
@@ -57,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(this,"Your BMI is "+ bmi, Toast.LENGTH_LONG).show();
         //AlertDialog對話框 ：按ok後消失
         new AlertDialog.Builder(this)
-            .setTitle("BMI")
-                .setMessage("Your BMI is" + bmi)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            .setTitle(R.string.bmi)
+                .setMessage(getString(R.string.your_bmi_is) + bmi)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialog, int which) {
             edWeight.setText(" ");
